@@ -1,0 +1,19 @@
+:root {
+    --bg-color: #ecf2f9;
+    --outer-shadow: 3px 3px 3px #fff,
+                    -3px -3px 3px #ceced1;
+    --inner-shadow: inset 3px 3px 3px #fff,
+                    inset -3px -3px 3px #ceced1;
+    -color: olive;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: ;
+}
