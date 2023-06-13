@@ -37,6 +37,7 @@ header {
     background-color: var(--bg-color);
     position: sticky;
     padding: 1rem;
+    top: 0;
     box-shadow: 0 1.5px 5px rgba(32, 32, 32, 0.2);
     display: flex;
     justify-content: space-between;
@@ -59,6 +60,7 @@ header {
     display: flex;
     gap: 18px
 }
+
 .navbar li {
     cursor: pointer;
 }
@@ -70,7 +72,8 @@ a {
     font-size: 18px;
     margin: 0 .4rem;
 }
-.navbar li:hover a{
+
+.navbar li:hover a {
     color: var(--active-color);
 }
 
@@ -88,4 +91,120 @@ a {
     border-radius: 50%;
     background-color: var(--color);
     color: #fff;
+}
+
+h3 {
+    margin: 1rem auto;
+    color: var(--color);
+    text-align: center;
+}
+
+.form {
+    width: clamp(350px, 66vw, 500px);
+    margin: auto;
+    padding-top: 20px;
+}
+
+input,
+select {
+    width: 100%;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: .5rem 0;
+    outline-color: var(--active-color);
+    color: var(--color);
+    background-color: transparent;
+}
+
+input::placeholder {
+    color: inherit;
+    opacity: .68;
+}
+
+input:not([type="submit"]):hover {
+    background-color: #fff;
+}
+
+.submit-button {
+    background-color: var(--color);
+    color: #fff;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    font-size: 20px;
+}
+
+.submit-button:hover {
+    background-color: rgb(90, 90, 0);
+}
+
+.option-btn {
+    color: var(--color);
+}
+.add {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 1rem;
+    border-radius: 50%;
+    text-align: center;
+    border: 1px solid var(--color);
+    font-size: 30px;
+    line-height: 41px;
+}
+
+.show-product {
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.show-product .product-table {
+    width: max-content;
+    min-width: 670px;
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    border-collapse: collapse;
+}
+
+.show-product .product-table td {
+    padding: 1rem;
+    font-size: 1rem;
+    margin: .5rem 0;
+}
+
+.show-product .product-table th {
+    color: var(--color);
+    padding: .5rem 0;
+    margin: 1.5rem 0;
+}
+
+.show-product .product-table :is(th, td) {
+    border: 1px solid #222;
+    box-shadow: 0 0 3px rgba(34, 34, 34, 0.151);
+}
+
+.product-table img {
+    width: 150px;
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.empty,
+.message {
+    max-width: 100px;
+    text-align: center;
+    color: var(--color);
+    background-color: #000;
+    word-spacing: 3px;
+    margin: 2rem auto;
+    padding: 1rem 0;
+    border-radius: 5px;
+}
+.delete-btn {
+    color: #cc1d1d;
 }
