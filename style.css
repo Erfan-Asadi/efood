@@ -42,7 +42,7 @@ header {
     position: sticky;
     padding: 1rem;
     top: 0;
-    box-shadow: 0 1.5px 5px rgba(32, 32, 32, 0.2);
+    box-shadow: var(--outer-shadow);
     display: flex;
     justify-content: space-between;
 }
@@ -105,19 +105,23 @@ h3 {
 
 .form {
     width: clamp(350px, 66vw, 500px);
-    margin: auto;
+    margin: 2rem auto;
     padding-top: 20px;
+    padding: 1rem;
+    box-shadow: var(--inner-shadow);
+    border-radius: 10px;
 }
 
 input,
 select {
     width: 100%;
-    border: 1px solid currentColor;
+    box-shadow: var(--outer-shadow);
     border-radius: 5px;
     padding: 1rem;
     margin: .5rem 0;
     outline-color: var(--active-color);
     color: var(--color);
+    border: 0;
     background-color: transparent;
 }
 
@@ -126,24 +130,31 @@ input::placeholder {
     opacity: .68;
 }
 
-input:not([type="submit"]):hover {
-    background-color: #fff;
+input:hover {
+    box-shadow: var(--inner-shadow);
 }
 
-.submit-button {
-    background-color: var(--color);
-    color: #fff;
-    cursor: pointer;
-    padding: .5rem 1rem;
-    font-size: 20px;
-}
 
-.submit-button:hover {
-    background-color: rgb(90, 90, 0);
-}
 
 .option-btn {
     color: var(--color);
+}
+
+.btn,
+.option-btn,
+.delete-btn {
+    cursor: pointer;
+    box-shadow: var(--outer-shadow);
+    border: 0;
+    color: var(--color);
+}
+
+.delete-btn,
+.option-btn {
+    padding: 4px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
 .add {
@@ -153,7 +164,7 @@ input:not([type="submit"]):hover {
     margin: 1rem;
     border-radius: 50%;
     text-align: center;
-    border: 1px solid var(--color);
+    box-shadow: var(--outer-shadow);
     font-size: 30px;
     line-height: 41px;
 }
@@ -187,9 +198,8 @@ input:not([type="submit"]):hover {
     margin: 1.5rem 0;
 }
 
-.show-product .product-table :is(th, td) {
-    border: 1px solid #222;
-    box-shadow: 0 0 3px rgba(34, 34, 34, 0.151);
+.show-product .product-table :is(th, tr) {
+    box-shadow: var(--outer-shadow);
 }
 
 .product-image {
@@ -197,6 +207,7 @@ input:not([type="submit"]):hover {
     aspect-ratio: 16 / 9;
     border-radius: 4px;
     object-fit: cover;
+    box-shadow: var(--outer-shadow);
 }
 
 .empty,
@@ -237,7 +248,7 @@ input:not([type="submit"]):hover {
     border-radius: 10px;
     text-align: center;
     margin: 0 auto;
-    border: 1px solid #222;
+    box-shadow: var(--outer-shadow);
 }
 
 /* .edit-form form img {
@@ -252,7 +263,43 @@ input:not([type="submit"]):hover {
     cursor: pointer;
 }
 
-.submit-button.update {
-    padding: 1rem;
-    font-size: 1rem;
+
+
+/* products.php */
+h1 {
+    font-size: 30px;
+    text-align: center;
+    margin: 2rem auto;
+    color: #555;
 }
+
+.product-item-container {
+    display: grid;
+    margin: 0 auto;
+    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.product-item-container img {
+    width: 150px;
+    height: 130px;
+    padding: .5rem;
+    object-fit: cover;
+    margin: 1rem 0;
+    border-radius: 4px;
+    box-shadow: var(--outer-shadow);
+}
+
+.product-item-container .box {
+    margin: .4rem;
+    text-align: center;
+    box-shadow: var(--outer-shadow);
+}
+
+.product-item-container .btn {
+    width: 150px;
+    margin: .5rem auto;
+    font-weight: bold;
+}
+
+/* products.php */

@@ -54,5 +54,6 @@
             <input type="file" name="p_image" accept="image/png, image/jpg, image/jpeg" required>
             <input type="submit" name="add_product" value="افزودن" class="btn submit-button">
         </form>
+    </div>
 </body>
 </html>
