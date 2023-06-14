@@ -1,6 +1,17 @@
 <?php
 include 'connection.php';
 
+//delete product
+if(isset($_GET['delete'])) {
+    $delete_id = $_GET['delete'];
+    $delete_query = mysqli_query($conn, "DELETE FROM `products` WHERE id=$delete_id") or die('query failded');
+    if($delete_query) {
+        $message[] = 'محصول با موفقیت حذف شد.';
+    } else {
+        $message[] = 'حذف محصول موفقیت آمیز نبود.';
+    }
+}
+
 // updating product
 if (isset($_POST['update_product'])) {
     $update_p_id = $_POST['update_p_id'];
@@ -39,8 +50,7 @@ if (isset($_POST['update_product'])) {
         foreach ($message as $message) {
             echo '
                     <div class="message">
-                        <span> ' . $message . ' <i class="bi bi-x"
-                                    onclick="this.parentElement.style.display=`none`"></i>
+                        <span onclick="this.parentElement.style.display=`none`"> ' . $message . ' <i class="bi bi-x"></i>
                         </span>
                     </div>
                 ';

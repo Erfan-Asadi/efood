@@ -30,7 +30,11 @@ body {
     font-size: 2rem;
     cursor: pointer;
     float: right;
-    cursor: var(--color)
+    cursor: var(--color);
+    position: relative;
+    top: -7px;
+    right: 5px;
+    cursor: pointer;
 }
 
 header {
@@ -197,7 +201,7 @@ input:not([type="submit"]):hover {
 
 .empty,
 .message {
-    max-width: 100px;
+    max-width: 300px;
     text-align: center;
     color: var(--color);
     background-color: #000;
