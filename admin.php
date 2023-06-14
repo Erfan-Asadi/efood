@@ -1,5 +1,24 @@
 <?php
 include 'connection.php';
+
+// updating product
+if (isset($_POST['update_product'])) {
+    $update_p_id = $_POST['update_p_id'];
+    $update_p_name = $_POST['update_p_name'];
+    $update_p_price = $_POST['update_p_price'];
+    $update_p_img = $_FILES['update_p_image']['name'];
+    $update_p_tmp_name = $_FILES['update_p_image']['tmp_name'];
+    $update_p_folder = 'images/'.$update_p_img;
+
+    $update_query = mysqli_query($conn, " UPDATE `products` SET id='$update_p_id', name='$update_p_name', price='$update_p_price', image='$update_p_img' WHERE id= '$update_p_id' ") or die('query failed');
+    if($update_query) {
+        move_uploaded_file($update_p_tmp_name, $update_p_folder);
+        $message[] = 'محصول با موفقیت ویرایش شد.';
+        header('location:admin.php');
+    } else {
+        $message[] = 'ویرایش محصول موفقیت آمیز نبود.';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +66,7 @@ include 'connection.php';
 
                         ?>
                         <tr>
-                            <td><img src="images/<?php echo $row['image']; ?>"></td>
+                            <td><img class="product-image" src="images/<?php echo $row['image']; ?>"></td>
                             <td>
                                 <?php echo $row['name']; ?>
                             </td>
@@ -75,6 +94,39 @@ include 'connection.php';
             </tbody>
         </table>
     </section>
+    <section class="edit-form">
+        <?php
+        if (isset($_GET['edit'])) {
+            $edit_id = $_GET['edit'];
+            $edit_query = mysqli_query($conn, "SELECT * FROM `products` where id=$edit_id") or die('query failed');
+
+            if (mysqli_num_rows($edit_query) > 0) {
+                while ($fetch_edit = mysqli_fetch_assoc($edit_query)) {
+
+                    ?>
+                    <form method="post" enctype="multipart/form-data">
+                        <h3>ویرایش محصول</h3>
+                        <img class="product-image" src="images/<?php echo $fetch_edit['image']; ?>" alt="">
+                        <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['id']; ?>">
+                        <input type="text" name="update_p_name" value="<?php echo $fetch_edit['name']; ?>" required>
+                        <input type="number" name="update_p_price" min="0" value="<?php echo $fetch_edit['price']; ?>" required>
+                        <input type="file" name="update_p_image" accept="image/png, image/jpg, image/jpeg" required>
+                        <input type="submit" name="update_product" value="ثبت ویرایش" class="btn submit-button update">
+                        <input type="reset" value="لغو" class="btn cancel" id="close-edit">
+                    </form>
+                    <?php
+                }
+            }
+            echo "<script>document.querySelector('.edit-form').style.display= 'flex';</script>";
+        }
+        ?>
+    </section>
+    <script type="text/javascript">
+        const closeButton = document.querySelector('#close-edit');
+        closeButton.addEventListener('click', () => {
+            document.querySelector('.edit-form').style.display = 'none';
+        })
+    </script>
 </body>
 
 </html>

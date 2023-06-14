@@ -141,6 +141,7 @@ input:not([type="submit"]):hover {
 .option-btn {
     color: var(--color);
 }
+
 .add {
     width: 40px;
     height: 40px;
@@ -162,7 +163,7 @@ input:not([type="submit"]):hover {
     width: max-content;
     min-width: 670px;
     max-width: 1000px;
-    margin: 4rem auto;
+    margin: 0 auto;
     padding: 2rem;
     width: 100%;
     text-align: center;
@@ -187,7 +188,7 @@ input:not([type="submit"]):hover {
     box-shadow: 0 0 3px rgba(34, 34, 34, 0.151);
 }
 
-.product-table img {
+.product-image {
     width: 150px;
     aspect-ratio: 16 / 9;
     border-radius: 4px;
@@ -205,6 +206,49 @@ input:not([type="submit"]):hover {
     padding: 1rem 0;
     border-radius: 5px;
 }
+
 .delete-btn {
     color: #cc1d1d;
+}
+
+.edit-form {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    /* background-image: ; */
+    background-repeat: no-repeat;
+    padding: 2rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    z-index: 10;
+}
+
+.edit-form form {
+    width: 50vw;
+    padding: 3rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid #222;
+}
+
+/* .edit-form form img {
+    width: 150px;
+    border-radius: 50%;
+} */
+
+.update,
+.edit-form .cancel {
+    width: 24%;
+    margin-left: .3rem;
+    cursor: pointer;
+}
+
+.submit-button.update {
+    padding: 1rem;
+    font-size: 1rem;
 }
