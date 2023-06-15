@@ -192,10 +192,11 @@ input:hover {
     margin: .5rem 0;
 }
 
-.show-product .product-table th {
+th {
     color: var(--color);
-    padding: .5rem 0;
+    padding: .5rem;
     margin: 1.5rem 0;
+    box-shadow: var(--outer-shadow);
 }
 
 .show-product .product-table :is(th, tr) {
@@ -303,3 +304,88 @@ h1 {
 }
 
 /* products.php */
+/* cart.php  */
+.cart-container {
+    background-color: var(--bg-color);
+    width: 70vw;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.cart-container table {
+    margin: 0 auto;
+}
+.cart-container table tr {
+    padding: 1rem 0;
+    box-shadow: var(--outer-shadow);
+}
+
+.cart-container table tr td {
+    padding: 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+
+.cart-container input[type="submit"] {
+    width: 80px;
+    border-radius: 5px;
+    padding: .5rem;
+    cursor: pointer;
+    color: orange;
+}
+
+.product-item-container :is(.delete-btn, .option-btn) {
+    font-size: 15px;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+}
+
+.cart-container .delete-btn:hover {
+    box-shadow: var(--inner-shadow);
+}
+
+.table-bottom {
+    padding: 1rem 2rem;
+}
+
+.table-bottom tr td {
+    border-bottom: none;
+}
+
+.cart-container img {
+    width: 100px;
+    border-radius: 5px;
+    padding: .5rem;
+    box-shadow: var(--outer-shadow);
+}
+
+.cart-container .checkout-btn {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.checkout-btn a {
+    width: auto;
+    margin: 0 auto;
+    background-color: olive;
+    color: #fff;
+    border-radius: 5px;
+    padding: .5rem 2rem;
+}
+
+.checkout-btn a.disabled {
+    pointer-events: none;
+    opacity: .5;
+    user-select: none;
+    background-color: red;
+}
+
+.quantity input {
+    width: 100px;
+    padding: .5rem;
+    margin: 0 3px;
+}
+
+/* cart.php  */

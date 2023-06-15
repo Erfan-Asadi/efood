@@ -1,6 +1,24 @@
 <?php
 include 'connection.php';
 
+if (isset($_POST['update_btn'])) {
+    $update_value = $_POST['update_quantity'];
+    $update_id = $_POST['update_quantity_id'];
+
+    $update_query = mysqli_query($conn, "UPDATE `cart` SET  quantity='$update_value' WHERE id='$update_id'") or die('query failed');
+    if ($update_query) {
+        header('location:cart.php');
+    }
+}
+if (isset($_GET['remove'])) {
+    $remove_id = $_GET['remove'];
+    mysqli_query($conn, "DELETE FROM `cart` WHERE id='$remove_id'");
+    header('location:cart.php');
+}
+if (isset($_GET['delete_all'])) {
+    mysqli_query($conn, "DELETE FROM `cart`");
+    header('location:cart.php');
+}
 
 ?>
 
@@ -57,13 +75,13 @@ include 'connection.php';
                                 </form>
                             </td>
                             <td>
-                                <?php echo $sub_total = number_format($fetch_cart['price'] * $fetch_cart['quantity']) ?>ت
+                                <?php echo $sub_total = $fetch_cart['price'] * $fetch_cart['quantity']; ?>ت
                             </td>
                             <td> <a href="cart.php?remove=<?php echo $fetch_cart['id']; ?>"
                                     onclick="return confirm('محصول از سبد خرید حذف شود؟ ');" class="delete-btn">حذف</a> </td>
                         </tr>
                         <?php
-                        $grand_total = $sub_total;
+                        $grand_total += $sub_total;
                     }
                 }
                 ?>
@@ -75,14 +93,17 @@ include 'connection.php';
                         <h1>مجموع قابل پرداخت</h1>
                     </td>
                     <td style="font-weight: bold">
-                        <?php echo $grand_total ?>ت
+                        <?php echo number_format($grand_total) ?>ت
                     </td>
-                    <td> <a href="cart.php?delete_all=<?php echo $fetch_cart['id']; ?>"
-                            onclick="return confirm('کل سبد خرید پاک شود؟');" class="delete-btn">پاک کردن سبد خرید</a>
+                    <td> <a href="cart.php?delete_all"
+                            onclick="return confirm('کل سبد خرید پاک شود؟');" class="delete-btn">حذف همه</a>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <div class="checkout-btn">
+            <a href="checkout.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">پرداخت</a>
+        </div>
     </div>
 
 </body>
