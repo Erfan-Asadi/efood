@@ -389,3 +389,111 @@ h1 {
 }
 
 /* cart.php  */
+/* checkout.php  */
+.checkout-form{
+    width: 70vw;
+    margin: 0 auto;
+}
+.checkout-form form {
+    width: 100%;
+    box-shadow: var(--outer-shadow);
+    background-color: var(--bg-color);
+    margin-top: 4rem;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;   
+}
+.checkout-form form .input-field {
+    width: 48%;
+    margin: 0 .5rem;
+}
+.checkout-form span {
+    color: #555;
+}
+.display-order span {
+    display: inline-block;
+    box-shadow: var(--outer-shadow);
+    padding: .5rem;
+    border-radius: 4px;
+}
+.display-order span:not(:last-child) {
+    margin: 0 .5rem;
+}
+.display-order {
+    margin: 0 auto;
+    box-shadow: var(--inner-shadow);
+    border-radius: 5px;
+    text-align: center;
+    padding: .8rem 2rem;
+}
+.display-order .grand-total {
+    width: 100%;
+    background-color: red;
+    color: #fff;
+    cursor: pointer;
+    margin-top: .5rem;
+}
+.order-confirm-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    background-color: var(--bg-color);
+    width: 100%;
+}
+.message-container {
+    width: 40rem;
+    line-height: 2;
+    box-shadow: var(--outer-shadow);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+}
+.message-container h3 {
+    color: orange;
+    text-align: center;
+}
+.order-detail {
+    box-shadow: var(--inner-shadow);
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+.order-detail span {
+    color: #555;
+    border-radius: .5rem;
+    box-shadow: var(--outer-shadow);
+    font-size: 1.3rem;
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    margin: 1rem;
+}
+.order-detail .total {
+    display: inline-block;
+    background-color: red;
+    color: #fff;
+}
+.costomer-details {
+    font-size: 1.4rem;
+}
+.constomer-details span {
+    color: olive;
+    font-weight: bold;
+}
+.pay {
+    margin: 1rem 0;
+}
+.order-confirm-container .btn {
+    padding: .4rem 1rem;
+    border-radius: 5px;
+    
+}
+/* checkout.php  */
